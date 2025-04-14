@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { sendEmailVerification } from "firebase/auth";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiLockPasswordFill } from "react-icons/ri";
@@ -14,13 +14,13 @@ const SigninWithEmail = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("idle");
-  const [errorMsg, setErrorMsg] = useState("");
+  // const [errorMsg, setErrorMsg] = useState("");
 
   const createdUser = async () => {
     setStatus("loading");
-    setErrorMsg("");
+    // setErrorMsg("");
 
-    try {
+    // try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -56,14 +56,15 @@ const SigninWithEmail = () => {
       };
 
       // Send to backend
-      try {
+      // try {
         await axios.post(
           "http://localhost:7000/api/v1/googleAuth/register/User",
           userData
         );
-      } catch (err) {
-        console.log("AXIOS ERROR:", err.response?.data || err.message);
-      }
+      // } 
+      // catch (err) {
+      //   console.log("AXIOS ERROR:", err.response?.data || err.message);
+      // }
 
       // Sign out the user after sending verification
       await auth.signOut();
@@ -76,12 +77,12 @@ const SigninWithEmail = () => {
         setStatus("idle");
         alert("Verification email sent! ✅\nPlease check your inbox.");
       }, 3000);
-    } catch (error) {
-      console.error("Firebase Error:", error);
+    // } catch (error) {
+      // console.error("Firebase Error:", error);
       setStatus("error");
-      setErrorMsg(error.message || "An unexpected error occurred.");
+      // setErrorMsg(error.message || "An unexpected error occurred.");
       setTimeout(() => setStatus("idle"), 3000);
-    }
+    // }
   };
 
   const getButtonLabel = () => {
