@@ -197,10 +197,10 @@ const SigninWithEmail = () => {
           };
           console.log("Google Redirect User:", userData);
 
-          await axios.post(
-            "http://localhost:7000/api/v1/googleAuth/register/User",
-            userData
-          );
+          // await axios.post(
+          //   "http://localhost:7000/api/v1/googleAuth/register/User",
+          //   userData
+          // );
         }
       } catch (err) {
         console.error("Google Redirect Error:", err);
@@ -244,10 +244,10 @@ const SigninWithEmail = () => {
         provider: user.providerData[0]?.providerId,
       };
 
-      await axios.post(
-        "http://localhost:7000/api/v1/googleAuth/register/User",
-        userData
-      );
+      // await axios.post(
+      //   "http://localhost:7000/api/v1/googleAuth/register/User",
+      //   userData
+      // );
 
       await auth.signOut();
       setStatus("success");
