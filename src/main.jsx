@@ -19,6 +19,7 @@ import { ToastContainer } from "react-toastify";
 import ToastWrapper from "./utils/ToastWrapper.jsx";
 import VerifiedSuccessfully from "./Signin.jsx/Verified.jsx";
 import Welcome from "./Signin.jsx/Welcome.jsx";
+import AuthHandler from "./Signin.jsx/AuthHandler.jsx";
 
 // Layout Component to Wrap Routes with ScrollToTop
 const Layout = () => {
@@ -61,6 +62,7 @@ const Routes = createBrowserRouter([
       { path: "/terms&&conditions", element: <TermsCons /> },
       { path: "/verifiedSuccessfully", element: <VerifiedSuccessfully /> },
       { path: "/welcome", element: <Welcome /> },
+      { path: "/__/auth/handler", element: <AuthHandler /> },
     ],
   },
 ]);
