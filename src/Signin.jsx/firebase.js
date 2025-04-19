@@ -6,7 +6,8 @@ import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC4q5LsrEv-b-2nGSSYhiw_QA6EmYxw6Fk",
-  authDomain: "mdivine-ecom.firebaseapp.com",
+  // authDomain: "mdivine-ecom.firebaseapp.com",
+  authDomain: "http://testgauth.onrender.com/",
   projectId: "mdivine-ecom",
   storageBucket: "mdivine-ecom.firebasestorage.app",
   messagingSenderId: "540709082171",
