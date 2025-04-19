@@ -1,30 +1,24 @@
-// import { defineConfig } from 'vite'
-// // import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
-// // https://vite.dev/config/
+// https://vite.dev/config/
+export default defineConfig({
+    plugins: [react()],
+    build: {
+      outDir: "dist",
+    },
+});
+
+
+
+// // vite.config.js
+// import { defineConfig } from 'vite';
+
 // export default defineConfig({
-//   //   plugins: [react()],
-//   //   build: {
-//   //     outDir: "dist",
-//   //   },
-//   // });
 //   server: {
 //     headers: {
-//       "Cross-Origin-Embedder-Policy": "unsafe-none",
+//       'Cross-Origin-Opener-Policy': 'same-origin',
+//       'Cross-Origin-Embedder-Policy': 'require-corp',
 //     },
 //   },
 // });
-
-
-
-// vite.config.js
-import { defineConfig } from 'vite';
-
-export default defineConfig({
-  server: {
-    headers: {
-      'Cross-Origin-Opener-Policy': 'same-origin',
-      'Cross-Origin-Embedder-Policy': 'require-corp',
-    },
-  },
-});
