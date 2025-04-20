@@ -37,14 +37,14 @@
 
 
 
-import { getAuth, signInWithRedirect, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithRedirect, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { app } from "./firebase";
 
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
 const signInWithGoogle = () => {
-  signInWithRedirect(auth, googleProvider); // Just starts the redirect
+  signInWithPopup(auth, googleProvider); // Just starts the redirect
 };
 
 export default signInWithGoogle;

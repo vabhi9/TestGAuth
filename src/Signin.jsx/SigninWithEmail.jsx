@@ -166,7 +166,7 @@ import {
   sendEmailVerification,
   getRedirectResult,
   getAuth,
-  createUserWithEmailAndPassword,
+  // createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiLockPasswordFill } from "react-icons/ri";
@@ -181,88 +181,88 @@ const SigninWithEmail = () => {
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("idle");
 
-  useEffect(() => {
-    const fetchGoogleRedirectUser = async () => {
-      try {
-        const result = await getRedirectResult(auth);
-        if (result?.user) {
-          const user = result.user;
-          const userData = {
-            uid: user.uid,
-            name: user.displayName || "No Name",
-            email: user.email,
-            createdAt: user.metadata.creationTime,
-            lastLogin: user.metadata.lastSignInTime,
-            provider: user.providerData[0]?.providerId,
-          };
-          console.log("Google Redirect User:", userData);
+  // useEffect(() => {
+  //   const fetchGoogleRedirectUser = async () => {
+  //     try {
+  //       const result = await getRedirectResult(auth);
+  //       if (result?.user) {
+  //         const user = result.user;
+  //         const userData = {
+  //           uid: user.uid,
+  //           name: user.displayName || "No Name",
+  //           email: user.email,
+  //           createdAt: user.metadata.creationTime,
+  //           lastLogin: user.metadata.lastSignInTime,
+  //           provider: user.providerData[0]?.providerId,
+  //         };
+  //         console.log("Google Redirect User:", userData);
 
-          // await axios.post(
-          //   "http://localhost:7000/api/v1/googleAuth/register/User",
-          //   userData
-          // );
-        }
-      } catch (err) {
-        console.error("Google Redirect Error:", err);
-      }
-    };
-    fetchGoogleRedirectUser();
-  }, []);
+  //         await axios.post(
+  //           "http://localhost:7000/api/v1/googleAuth/register/User",
+  //           userData
+  //         );
+  //       }
+  //     } catch (err) {
+  //       console.error("Google Redirect Error:", err);
+  //     }
+  //   };
+  //   fetchGoogleRedirectUser();
+  // }, []);
 
-  const createdUser = async () => {
-    setStatus("loading");
-    try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      const user = userCredential.user;
+  // const createdUser = async () => {
+  //   setStatus("loading");
+  //   try {
+  //     const userCredential = await createUserWithEmailAndPassword(
+  //       auth,
+  //       email,
+  //       password
+  //     );
+  //     const user = userCredential.user;
 
-      await sendEmailVerification(user, {
-        url: "http://localhost:5173/VerifiedSuccessFully",
-        handleCodeInApp: true,
-      });
+  //     await sendEmailVerification(user, {
+  //       url: "http://localhost:5173/VerifiedSuccessFully",
+  //       handleCodeInApp: true,
+  //     });
 
-      const extractNameFromEmail = (email) => {
-        return email
-          .split("@")[0]
-          .replace(/[^a-zA-Z]/g, " ")
-          .replace(/\s+/g, " ")
-          .trim()
-          .replace(/^\w/, (c) => c.toUpperCase());
-      };
+  //     const extractNameFromEmail = (email) => {
+  //       return email
+  //         .split("@")[0]
+  //         .replace(/[^a-zA-Z]/g, " ")
+  //         .replace(/\s+/g, " ")
+  //         .trim()
+  //         .replace(/^\w/, (c) => c.toUpperCase());
+  //     };
 
-      const extractedName = extractNameFromEmail(user.email);
+  //     const extractedName = extractNameFromEmail(user.email);
 
-      const userData = {
-        uid: user.uid,
-        name: extractedName,
-        email: user.email,
-        createdAt: user.metadata.creationTime,
-        lastLogin: user.metadata.lastSignInTime,
-        provider: user.providerData[0]?.providerId,
-      };
+  //     const userData = {
+  //       uid: user.uid,
+  //       name: extractedName,
+  //       email: user.email,
+  //       createdAt: user.metadata.creationTime,
+  //       lastLogin: user.metadata.lastSignInTime,
+  //       provider: user.providerData[0]?.providerId,
+  //     };
 
-      // await axios.post(
-      //   "http://localhost:7000/api/v1/googleAuth/register/User",
-      //   userData
-      // );
+  //     await axios.post(
+  //       "http://localhost:7000/api/v1/googleAuth/register/User",
+  //       userData
+  //     );
 
-      await auth.signOut();
-      setStatus("success");
-      setEmail("");
-      setPassword("");
-      setTimeout(() => {
-        setStatus("idle");
-        alert("Verification email sent! ✅\nPlease check your inbox.");
-      }, 3000);
-    } catch (error) {
-      console.error("Firebase Error:", error);
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 3000);
-    }
-  };
+  //     await auth.signOut();
+  //     setStatus("success");
+  //     setEmail("");
+  //     setPassword("");
+  //     setTimeout(() => {
+  //       setStatus("idle");
+  //       alert("Verification email sent! ✅\nPlease check your inbox.");
+  //     }, 3000);
+  //   } catch (error) {
+  //     console.error("Firebase Error:", error);
+  //     setStatus("error");
+  //     setTimeout(() => setStatus("idle"), 3000);
+  //   }
+  // };
 
   const getButtonLabel = () => {
     switch (status) {
@@ -322,7 +322,7 @@ const SigninWithEmail = () => {
             </div>
             <button
               className="w-full bg-Primary p-2 rounded-xl font-bold text-xl active:scale-[0.85] duration-700 text-white"
-              onClick={createdUser}
+              // onClick={createdUser}
             >
               {getButtonLabel()}
             </button>

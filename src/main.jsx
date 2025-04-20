@@ -62,7 +62,7 @@ const Routes = createBrowserRouter([
       { path: "/terms&&conditions", element: <TermsCons /> },
       { path: "/verifiedSuccessfully", element: <VerifiedSuccessfully /> },
       { path: "/welcome", element: <Welcome /> },
-      { path: "/__/auth/handler", element: <AuthHandler /> },
+      // { path: "/__/auth/handler", element: <AuthHandler /> },
     ],
   },
 ]);
