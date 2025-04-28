@@ -11,8 +11,8 @@
     "start": "vite"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.3.0",
     "axios": "^1.8.4",
-    "firebase": "^11.6.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-google-button": "^0.8.0",

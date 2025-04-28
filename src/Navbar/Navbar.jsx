@@ -1,4 +1,4 @@
-import React from "react";  
+import React from "react";
 import { useEffect, useState } from "react";
 import { scrollFix } from "../utils/Scroll.js";
 import MDiv from "./MDiv.png";
@@ -6,6 +6,7 @@ import Hover from "../utils/Hover";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useCart } from "../Cart/CartContext";
 import Cart from "../Cart/Cart.jsx";
+import LoginButton from "../Signin.jsx/Login.jsx";
 
 const Navbar = () => {
   useEffect(() => {
@@ -32,7 +33,7 @@ const Navbar = () => {
         <div className="">
           <NavLink to="/signin">
             <div className="bg-white px-3 py-1 rounded-xl active:scale-95 duration-500">
-              Sign-in
+              <LoginButton/>
             </div>
           </NavLink>
         </div>

@@ -17,9 +17,11 @@ import ProDesc from "./ProductLayout/ProductDescription/ProDesc.jsx";
 import { CartProvider } from "./Cart/CartContext.jsx";
 import { ToastContainer } from "react-toastify";
 import ToastWrapper from "./utils/ToastWrapper.jsx";
-import VerifiedSuccessfully from "./Signin.jsx/Verified.jsx";
-import Welcome from "./Signin.jsx/Welcome.jsx";
-import AuthHandler from "./Signin.jsx/AuthHandler.jsx";
+import { Auth0Provider } from "@auth0/auth0-react";
+import Sin from "./Signin.jsx/Sin.jsx";
+import Welcome from "./utils/Verified.jsx";
+// import Welcome from "./Signin.jsx/Welcome.jsx";
+// import AuthHandler from "./Signin.jsx/AuthHandler.jsx";
 
 // Layout Component to Wrap Routes with ScrollToTop
 const Layout = () => {
@@ -35,7 +37,7 @@ const Routes = createBrowserRouter([
   {
     element: <Layout />, // Wrap all routes inside Layout to apply ScrollToTop globally
     children: [
-      { path: "/signin", element: <Sign /> },
+      { path: "/signin", element: <Sin /> },
       { path: "/Home", element: <App /> },
       // { path: "/user/:username", element: <App /> },
       { path: "/", element: <App /> },
@@ -60,8 +62,9 @@ const Routes = createBrowserRouter([
       { path: "/return&refundpolicies", element: <Refund /> },
       { path: "/&&privacypolicy", element: <Privacy /> },
       { path: "/terms&&conditions", element: <TermsCons /> },
-      { path: "/verifiedSuccessfully", element: <VerifiedSuccessfully /> },
       { path: "/welcome", element: <Welcome /> },
+      // { path: "/verifiedSuccessfully", element: <VerifiedSuccessfully /> },
+      // { path: "/welcome", element: <Welcome /> },
       // { path: "/__/auth/handler", element: <AuthHandler /> },
     ],
   },
@@ -71,7 +74,15 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <CartProvider>
       <ToastWrapper />
-      <RouterProvider router={Routes} />
+      <Auth0Provider
+        domain="dev-byqjfgrjkisp6l10.us.auth0.com"
+        clientId="r8vh0PThAwqxcRo3RLFkuNh4tJwVBLd1"
+        authorizationParams={{
+          redirect_uri: window.location.origin,
+        }}
+      >
+        <RouterProvider router={Routes} />
+      </Auth0Provider>
     </CartProvider>
   </StrictMode>
 );
