@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import sendUserData from "./sendUserData.jsx";
+import sendUserData from "./sendUserData.js";
 import LogoutButton from "./Logout.jsx";
 
 const Sin = () => {

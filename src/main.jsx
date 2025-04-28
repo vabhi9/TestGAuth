@@ -4,7 +4,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { VisibilityProvider } from "./utils/Visibilitycontext.jsx";
-import Sign from "./Signin.jsx/Sign.jsx";
+// import Sign from "./Signin.jsx/Sign.jsx";
 import ProductLayout from "./ProductLayout/ProductLayout.jsx";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ScrollToTop from "./utils/ScrolltoTop.jsx";
@@ -18,7 +18,7 @@ import { CartProvider } from "./Cart/CartContext.jsx";
 import { ToastContainer } from "react-toastify";
 import ToastWrapper from "./utils/ToastWrapper.jsx";
 import { Auth0Provider } from "@auth0/auth0-react";
-import Sin from "./Signin.jsx/Sin.jsx";
+import Sin from "./Signin/Sin.jsx";
 import Welcome from "./utils/Verified.jsx";
 // import Welcome from "./Signin.jsx/Welcome.jsx";
 // import AuthHandler from "./Signin.jsx/AuthHandler.jsx";
@@ -78,7 +78,14 @@ createRoot(document.getElementById("root")).render(
         domain="dev-byqjfgrjkisp6l10.us.auth0.com"
         clientId="r8vh0PThAwqxcRo3RLFkuNh4tJwVBLd1"
         authorizationParams={{
-          redirect_uri: window.location.origin,
+          redirect_uri: `${window.location.origin}/signin`,
+        }}
+        onRedirectCallback={(appState) => {
+          window.history.replaceState(
+            {},
+            document.title,
+            appState?.returnTo || window.location.pathname
+          );
         }}
       >
         <RouterProvider router={Routes} />

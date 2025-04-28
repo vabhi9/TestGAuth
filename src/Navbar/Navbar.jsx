@@ -6,7 +6,7 @@ import Hover from "../utils/Hover";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useCart } from "../Cart/CartContext";
 import Cart from "../Cart/Cart.jsx";
-import LoginButton from "../Signin.jsx/Login.jsx";
+import LoginButton from "../Signin/Login.jsx";
 
 const Navbar = () => {
   useEffect(() => {

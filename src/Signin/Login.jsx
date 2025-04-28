@@ -8,8 +8,7 @@ const LoginButton = () => {
     <button
       onClick={() =>
         loginWithRedirect({
-          redirectUri: window.location.origin, // 👈 Must provide here too!
-          prompt: "select_account"
+          appState: { returnTo: "/signin" },
         })
       }
     >

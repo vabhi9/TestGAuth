@@ -7,13 +7,6 @@ const sendUserData = async (user) => {
   alreadySent = true;
 
   try {
-    console.log("Sending user data:", {
-      name: user.name,
-      email: user.email,
-      auth0Id: user.sub, // Should be passed as auth0Id
-      picture: user.picture,
-    });
-
     await axios.post(
       `${import.meta.env.VITE_API_BASE_URL}/api/v1/googleAuth/register/User`,
       {
@@ -23,7 +16,7 @@ const sendUserData = async (user) => {
         picture: user.picture,
         // add more fields if needed
       }
-    );
+    )
   } catch (error) {
     console.error("Failed to send user data:", error);
   }
