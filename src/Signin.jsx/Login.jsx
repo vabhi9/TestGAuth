@@ -8,7 +8,7 @@ const LoginButton = () => {
     <button
       onClick={() =>
         loginWithRedirect({
-          redirectUri: `${window.location.origin}/welcome`, // 👈 Must provide here too!
+          redirectUri: window.location.origin, // 👈 Must provide here too!
         })
       }
     >
