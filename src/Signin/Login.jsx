@@ -9,7 +9,7 @@ const LoginButton = () => {
       onClick={() =>
         loginWithRedirect({
           authorizationParams: {
-            redirect_uri: "http://localhost:5173/welcome",
+            redirect_uri: "https://testgauth.onrender.com/welcome",
           },
         })
       }
