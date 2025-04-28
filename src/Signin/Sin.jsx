@@ -1,22 +1,22 @@
 import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import sendUserData from "./sendUserData.js";
+// import sendUserData from "./sendUserData.js";
 import LogoutButton from "./Logout.jsx";
 
 const Sin = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   console.log(user);
 
-  useEffect(() => {
-    const sendSecureData = async () => {
-      if (isAuthenticated && user) {
-        // const token = await getAccessTokenSilently();
-        await sendUserData(user); // pass the token along
-      }
-    };
+  // useEffect(() => {
+  //   const sendSecureData = async () => {
+  //     if (isAuthenticated && user) {
+  //       // const token = await getAccessTokenSilently();
+  //       await sendUserData(user); // pass the token along
+  //     }
+  //   };
 
-    sendSecureData();
-  }, [isAuthenticated, user]);
+  //   sendSecureData();
+  // }, [isAuthenticated, user]);
 
   if (isLoading === true) {
     return <div>Loading....</div>;

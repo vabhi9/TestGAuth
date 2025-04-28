@@ -20,7 +20,6 @@ import ToastWrapper from "./utils/ToastWrapper.jsx";
 import { Auth0Provider } from "@auth0/auth0-react";
 import Sin from "./Signin/Sin.jsx";
 import Welcome from "./utils/Verified.jsx";
-import AuthCallback from "./Signin/AuthCallback.jsx";
 // import Welcome from "./Signin.jsx/Welcome.jsx";
 // import AuthHandler from "./Signin.jsx/AuthHandler.jsx";
 
@@ -40,7 +39,6 @@ const Routes = createBrowserRouter([
     children: [
       { path: "/signin", element: <Sin /> },
       { path: "/Home", element: <App /> },
-      { path: "/callback", element: <AuthCallback /> },
       // { path: "/user/:username", element: <App /> },
       { path: "/", element: <App /> },
       {

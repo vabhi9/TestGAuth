@@ -8,7 +8,9 @@ const LoginButton = () => {
     <button
       onClick={() =>
         loginWithRedirect({
-          appState: { returnTo: "/signin" },
+          authorizationParams: {
+            redirect_uri: "http://localhost:5173/welcome",
+          },
         })
       }
     >
