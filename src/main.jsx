@@ -78,7 +78,7 @@ createRoot(document.getElementById("root")).render(
         domain="dev-byqjfgrjkisp6l10.us.auth0.com"
         clientId="r8vh0PThAwqxcRo3RLFkuNh4tJwVBLd1"
         authorizationParams={{
-          redirect_uri: window.location.origin,
+          redirect_uri: `${window.location.origin}/welcome`,
         }}
       >
         <RouterProvider router={Routes} />
