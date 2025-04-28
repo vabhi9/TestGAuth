@@ -9,6 +9,7 @@ const LoginButton = () => {
       onClick={() =>
         loginWithRedirect({
           redirectUri: window.location.origin, // 👈 Must provide here too!
+          prompt: "select_account"
         })
       }
     >
